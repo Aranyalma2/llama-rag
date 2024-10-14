@@ -1,0 +1,28 @@
+{
+  "name": "llama-rag",
+  "version": "1.0.0",
+  "description": "This is a university project for use a RAG middleware between Home Assisant and llama.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aranyalma2/llama-rag.git"
+  },
+  "author": "Aranyalma2",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Aranyalma2/llama-rag/issues"
+  },
+  "homepage": "https://github.com/Aranyalma2/llama-rag#readme",
+  "dependencies": {
+    "@langchain/community": "^0.3.5",
+    "@langchain/ollama": "^0.1.0",
+    "body-parser": "^1.20.3",
+    "chromadb": "^1.9.2",
+    "express": "^4.21.1",
+    "langchain": "^0.3.2",
+    "path": "^0.12.7"
+  }
+}
