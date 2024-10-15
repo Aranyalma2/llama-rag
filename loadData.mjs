@@ -1,8 +1,9 @@
 import {OllamaEmbeddings} from "@langchain/ollama"
 import { Chroma } from "@langchain/community/vectorstores/chroma";
+import { MultiFileLoader } from "langchain/document_loaders/fs/multi_file";
+import { JSONLoader } from "langchain/document_loaders/fs/json";
 import { TextLoader } from "langchain/document_loaders/fs/text";
 import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
-
 
 //Get an instance of ollama embeddings
 const ollamaEmbeddings = new OllamaEmbeddings({
@@ -12,7 +13,16 @@ const ollamaEmbeddings = new OllamaEmbeddings({
 
 
 //Load data from txt file
-const loader = new TextLoader("./data/data.txt");
+const loader = new MultiFileLoader(
+  [
+    "data/data.txt",
+    "data/devices.json",
+  ],
+  {
+    ".json": (path) => new JSONLoader(path),
+    ".txt": (path) => new TextLoader(path),
+  }
+);
 const docs = await loader.load();
 
 //Create a text splitter
