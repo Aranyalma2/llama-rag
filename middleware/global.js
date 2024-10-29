@@ -2,24 +2,30 @@ const { OllamaEmbeddings } = require("@langchain/ollama");
 const { Chroma } = require("@langchain/community/vectorstores/chroma");
 const { Ollama } = require("@langchain/ollama");
 
-const ollamaEmbeddings = new OllamaEmbeddings({
+const home3bEmbeddings = new OllamaEmbeddings({
     baseUrl:process.env.OLLAMA,
-    model:process.env.MODEL
+    model:process.env.MODEL_HOME3B
 });
 
-const ollamaLlm = new Ollama({
+const llama = new Ollama({
     baseUrl:process.env.OLLAMA,
-    model:process.env.MODEL
+    model:process.env.MODEL_LLAMA
+});
+
+const home3b = new Ollama({
+    baseUrl:process.env.OLLAMA,
+    model:process.env.MODEL_HOME3B
 });
 
 const vectorStore = Chroma.fromExistingCollection(
-    ollamaEmbeddings,
+    home3bEmbeddings,
     { collectionName: process.env.CHORMADB_COLLECTION , url: process.env.CHROMADB },
   );
 
 
 module.exports = { 
-    ollamaEmbeddings,
-    ollamaLlm,
+    home3bEmbeddings,
+    home3b,
+    llama,
     vectorStore,
  }

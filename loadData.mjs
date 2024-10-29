@@ -8,7 +8,7 @@ import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 //Get an instance of ollama embeddings
 const ollamaEmbeddings = new OllamaEmbeddings({
     baseUrl:process.env.OLLAMA,
-    model:process.env.MODEL
+    model:process.env.HOME3B
 });
 
 
@@ -40,3 +40,7 @@ const vectorStore = await Chroma.fromDocuments(output, ollamaEmbeddings, {
     collectionName: process.env.CHROMADB_COLLECTION,
     url: process.env.CHROMADB, // Optional, will default to this value
 });
+
+const vectorStoreResponse = await vectorStore.similaritySearch("brother lamp", 1);
+
+console.log("Printing docs after similarity search --> ",vectorStoreResponse);

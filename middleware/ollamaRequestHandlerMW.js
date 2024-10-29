@@ -1,6 +1,7 @@
-const { vectorStore, ollamaLlm, ollamaEmbeddings } = require('./global.js');
+const {  llama, home3b, home3bEmbeddings } = require('./global.js');
 const { PromptTemplate } = require('@langchain/core/prompts');
 const { StringOutputParser } = require('@langchain/core/output_parsers');
+const { Chroma } = require("@langchain/community/vectorstores/chroma");
 
 function combineDocuments(docs) {
     return docs.map((doc) => doc.pageContent).join('\n\n');
@@ -19,40 +20,67 @@ module.exports = function () {
                 });
             }
 
-            const systemPrompt = prompt.match(/<\|im_start\|>system([\s\S]*?)<\|im_end\|>/)[1] | "";
-            const userPrompt = prompt.match(/<\|im_start\|>user([\s\S]*?)<\|im_end\|>/)[1] | "";
+            console.log("prompt:", prompt);
 
-            console.log("System Prompts:", systemPrompt);
-            console.log("User Prompts:", userPrompt);
+            let systemPrompt = prompt.match(/<\|im_start\|>system([\s\S]*?)<\|im_end\|>/);
+            systemPrompt = systemPrompt ? systemPrompt[0] : null;
+            let userPrompt = prompt.match(/<\|im_start\|>user([\s\S]*?)<\|im_end\|>/);
+            userPrompt = userPrompt ? userPrompt[0] : null;
 
-            const chromaRetriever = (await vectorStore).asRetriever();
-
-            const simpleQuestionPrompt = PromptTemplate.fromTemplate(`
-                    {systemPrompt}
-                    Task: "{userQuestion}"`
+           const vectorStore = await Chroma.fromExistingCollection(
+                home3bEmbeddings,
+                { collectionName: process.env.CHROMADB_COLLECTION , url: process.env.CHROMADB },
             );
 
-            const simpleQuestionChain = simpleQuestionPrompt.pipe(ollamaLlm).pipe(new StringOutputParser()).pipe(chromaRetriever);
+            //Get retriever
+            const chromaRetriever = vectorStore.asRetriever();
 
-            const documents = await simpleQuestionChain.invoke({
-                systemPrompt: systemPrompt,
+            console.log("userPrompt:", userPrompt);
+
+            //ASK LLAMA
+            const llamaQuestionPrompt = PromptTemplate.fromTemplate(`
+                For following user question convert it into a standalone english task to do something in homeassistant.
+                   {userQuestion}`
+            );
+            
+            const llamaQuestionChain = llamaQuestionPrompt.pipe(llama);
+            const llamaAnswer = await llamaQuestionChain.invoke({
+                userQuestion: userPrompt
+            });
+
+            console.log("llamaAnswer:", llamaAnswer);
+
+            //ASK HOME3B
+            const home3bQuestionPrompt = PromptTemplate.fromTemplate(`
+                For the following user question, create a valid task inside a homeassistant tag.
+                {userQuestion}`
+            );
+
+            const home3bQuestionChain = home3bQuestionPrompt.pipe(home3b).pipe(new StringOutputParser()).pipe(chromaRetriever);
+
+            const documents = await home3bQuestionChain.invoke({
                 userQuestion: userPrompt
             });
 
             const combinedDocs = combineDocuments(documents);
 
             const questionTemplate = PromptTemplate.fromTemplate(`
-                Create homeassistant yaml task for: {prompt} use the following <context>{context}</context>
+                You are a homassistant prompter. You have to create a valid task inside a homeassistant tag for the user question.
+                <context>
+                {context}
+                </context>
+                task: {prompt}
             `);
 
-            const answerChain = questionTemplate.pipe(ollamaLlm);
+            const answerChain = questionTemplate.pipe(home3b);
 
             const llmResponse = await answerChain.invoke({
                 context: combinedDocs,
-                prompt: userPrompt
+                prompt: llamaAnswer,
             });
 
             res.ollamaResponse = llmResponse;
+            console.log("llmResponse:", llmResponse);
             next();
 
         } catch (error) {

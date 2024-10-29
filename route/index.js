@@ -2,8 +2,6 @@ const ollamaRequestHandlerMW = require("../middleware/ollamaRequestHandlerMW");
 const returnOllamaCallMW = require("../middleware/returnOllamaCallMW");
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
-const { vectorStore } = require('../middleware/global');
-
 module.exports = function (app) {
     app.post('/api/generate', ollamaRequestHandlerMW(), returnOllamaCallMW());
 
