@@ -1,7 +1,6 @@
-const {  llama, home3b, home3bEmbeddings } = require('./global.js');
-const { PromptTemplate } = require('@langchain/core/prompts');
-const { StringOutputParser } = require('@langchain/core/output_parsers');
-const { Chroma } = require("@langchain/community/vectorstores/chroma");
+const { modelTask, modelSytax } = require("../../ai/models");
+const { memoryServiceInstance } = require("../../ai/msContainer");
+const responseValidator = require("./responseValidator");
 
 function combineDocuments(docs) {
     return docs.map((doc) => doc.pageContent).join('\n\n');
@@ -26,7 +25,7 @@ module.exports = function () {
             systemPrompt = systemPrompt ? systemPrompt[0] : null;
             let userPrompt = prompt.match(/<\|im_start\|>user([\s\S]*?)<\|im_end\|>/);
             userPrompt = userPrompt ? userPrompt[0] : null;
-
+/*
            const vectorStore = await Chroma.fromExistingCollection(
                 home3bEmbeddings,
                 { collectionName: process.env.CHROMADB_COLLECTION , url: process.env.CHROMADB },
@@ -39,8 +38,8 @@ module.exports = function () {
 
             //ASK LLAMA
             const llamaQuestionPrompt = PromptTemplate.fromTemplate(`
-                For following user question convert it into a standalone english task to do something in homeassistant.
-                   {userQuestion}`
+                Convert the following question into a short strict standalone task. Use english language only.
+                "{userQuestion}"`
             );
             
             const llamaQuestionChain = llamaQuestionPrompt.pipe(llama);
@@ -78,10 +77,18 @@ module.exports = function () {
                 context: combinedDocs,
                 prompt: llamaAnswer,
             });
+            */
+
+            let llmResponse = null;
+            let numberOfTries = 0;
+
+            do{
+                llmResponse = await memoryServiceInstance.service.getRelevantMemory(userPrompt);
+                console.log("llmResponse:", llmResponse);
+            }while(!responseValidator(llmResponse) && numberOfTries++ < 10);
 
             res.ollamaResponse = llmResponse;
-            console.log("llmResponse:", llmResponse);
-            next();
+            return next();
 
         } catch (error) {
             console.error(error);

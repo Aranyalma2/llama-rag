@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
+  <title>Rag datasets</title>
+</head>
+
+<body>
+  <h1>Rag datasets</h1>
+  <p>Here are the datasets for the RAG project.</p>
+
+  <!-- dynamically generated radio button menu from res.locals.dataSets -->
+  <form action="/rag" method="post" id="ragForm">
+    <ul>
+      <% for (let i = 0; i < dataSets.length; i++) { %>
+      <li>
+        <input type="radio" name="dataSet" value="<%= dataSets[i] %>" id="<%= dataSets[i] %>" <%= dataSets[i] === dataSetName ? 'checked' : '' %> />
+        <label for="<%= dataSets[i] %>"><%= dataSets[i] %></label>
+      </li>
+      <% } %>
+    </ul>
+
+    <input type="submit" value="Submit" />
+  </form>
+
+  <% if (typeof status !== 'undefined') { %>
+  <p id="status"><%= status %></p>
+  <% } %>
+
+  <script>
+    // Clear the status message on form submission
+    document.getElementById('ragForm').addEventListener('submit', function() {
+      const statusElement = document.getElementById('status');
+      if (statusElement) {
+        statusElement.textContent = 'Processing...'; // Clear the status text
+      }
+    });
+  </script>
+</body>
+
+</html>

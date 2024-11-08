@@ -3,7 +3,7 @@ const { JSONLoader } = require("langchain/document_loaders/fs/json");
 const { TextLoader } = require("langchain/document_loaders/fs/text");
 const { RecursiveCharacterTextSplitter } = require("langchain/text_splitter");
 const { MemoryVectorStore } = require("langchain/vectorstores/memory");
-const { ollamaEmbeddings } = require('./middleware/global.js');
+const { ollamaEmbeddings } = require('./ai/models.js');
 
 
 const loader = new MultiFileLoader(
@@ -33,11 +33,7 @@ const splitDocs = await splitter.splitDocuments(data);
 // Then use the TensorFlow Embedding to store these chunks in the datastore
 const vectorStore = await MemoryVectorStore.fromDocuments(splitDocs, ollamaEmbeddings);
 
-const vectorStoreAsRetriever = vectorStore.asRetriever(); 
-
-console.log("Retriever initialized");
-
-return vectorStoreAsRetriever;
+return vectorStore;
 
 }
 

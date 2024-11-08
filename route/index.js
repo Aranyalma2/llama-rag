@@ -1,6 +1,11 @@
-const ollamaRequestHandlerMW = require("../middleware/ollamaRequestHandlerMW");
-const returnOllamaCallMW = require("../middleware/returnOllamaCallMW");
+const ollamaRequestHandlerMW = require("../middleware/ollama/ollamaRequestHandlerMW");
+const returnOllamaCallMW = require("../middleware/ollama/returnOllamaCallMW");
 const { createProxyMiddleware } = require('http-proxy-middleware');
+
+const getRAGDataSetsMW = require("../middleware/rag/getRAGDataSetsMW");
+const loadRAGDataSetMW = require("../middleware/rag/loadRAGDataSetMW");
+const applyRAGDataSetMW = require("../middleware/rag/applyRAGDataSetMW");
+const renderMW = require("../middleware/renderMW");
 
 module.exports = function (app) {
     app.post('/api/generate', ollamaRequestHandlerMW(), returnOllamaCallMW());
@@ -11,11 +16,5 @@ module.exports = function (app) {
         
     }));
 
-    app.get('/api/cleardb', async (req, res) => {
-    try {
-        res.status(501).send({ message: 'ChromaDB collection clear not implemented yet.' });
-    } catch (error) {
-        res.status(500).send({ message: 'Failed to clear ChromaDB collection.', error: error.message });
-    }
-});
+    app.use('/rag', getRAGDataSetsMW(), loadRAGDataSetMW(), applyRAGDataSetMW(), renderMW('rag'));
 };
