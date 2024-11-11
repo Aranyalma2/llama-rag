@@ -9,7 +9,7 @@ module.exports = function (reponse) {
             const content = JSON.parse(match);
             return content.hasOwnProperty('service') && content.hasOwnProperty('target_device');
         } catch (e) {
-            console.log(e);
+            console.error(e);
             return false;
         }
     }

@@ -1,10 +1,7 @@
-const { modelTask, modelSytax } = require("../../ai/models");
+const { modelTask } = require("../../ai/models");
 const { memoryServiceInstance } = require("../../ai/msContainer");
 const responseValidator = require("./responseValidator");
-
-function combineDocuments(docs) {
-    return docs.map((doc) => doc.pageContent).join('\n\n');
-}
+const { PromptTemplate } = require('@langchain/core/prompts');
 
 module.exports = function () {
 
@@ -79,15 +76,29 @@ module.exports = function () {
             });
             */
 
-            let llmResponse = null;
+            //ASK LLAMA
+            const llamaQuestionPrompt = PromptTemplate.fromTemplate(`
+                Convert the following question into a short strict standalone task. Use english language only. Do not explan the question, just translate and summurize it.
+                "{userQuestion}"`
+            );
+            
+            const llamaQuestionChain = llamaQuestionPrompt.pipe(modelTask);
+            const chain1Answer = await llamaQuestionChain.invoke({
+                userQuestion: userPrompt
+            });
+
+            console.log("Chain1:", chain1Answer.content);
+
+
+            let chain2Answare = null;
             let numberOfTries = 0;
 
             do{
-                llmResponse = await memoryServiceInstance.service.getRelevantMemory(userPrompt);
-                console.log("llmResponse:", llmResponse);
-            }while(!responseValidator(llmResponse) && numberOfTries++ < 10);
+                chain2Answare = await memoryServiceInstance.service.getRelevantMemory(chain1Answer.content);
+                console.log(`Chain2 - ${numberOfTries+1}. try:`, chain2Answare);
+            }while(!responseValidator(chain2Answare) && numberOfTries++ < 10);
 
-            res.ollamaResponse = llmResponse;
+            res.ollamaResponse = chain2Answare;
             return next();
 
         } catch (error) {

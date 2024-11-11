@@ -7,7 +7,6 @@ module.exports = function () {
     return async function (req, res, next) {
 
         //Create a memory service and store the data
-        console.log(res.dataDoc);
         if(res.dataDoc === undefined){
             return next();
         }
