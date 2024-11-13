@@ -10,3 +10,8 @@ yarn install
 ```sh
 yarn start
 ```
+
+## For select the RAG data set check:
+```sh
+localhost:3000/rag
+```
