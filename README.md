@@ -15,3 +15,6 @@ yarn start
 ```sh
 localhost:3000/rag
 ```
+
+Use `m1.txt` for task generator model\
+Use `m2.txt` for syntax generator model
