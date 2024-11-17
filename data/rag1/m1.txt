@@ -1,0 +1,30 @@
+Kapcsold fel a villanyt || Turn on the lights
+Kapcsold le a villanyt || Turn off the lights
+Állítsd be a hőmérsékletet 22 fokra || Set the thermostat to 22°C
+Növeld a fűtést 2 fokkal || Increase the heating by 2°C
+Kapcsold ki a légkondit || Turn off the air conditioner
+Zárd be az ajtót || Lock the door
+Nyisd ki az ajtót || Unlock the door
+Indítsd el a mosógépet || Start the washing machine
+Állítsd le a mosogatógépet || Stop the dishwasher
+Kapcsold be a TV-t || Turn on the TV
+Kapcsold ki a TV-t || Turn off the TV
+Játszd le a kedvenc zenémet || Play my favorite music
+Némítsd el a hangszórót || Mute the speakers
+Kapcsold ki az összes lámpát || Turn off all the lights
+Ellenőrizd a biztonsági kamerát || Check the security camera
+Mennyi a kinti hőmérséklet? || What's the temperature outside?
+Állítsd be az ébresztőt reggel 7-re || Set the alarm for 7 AM
+Halkítsd le a zenét || Lower the volume of the music
+Kapcsold be a hálószobai villanyt || Turn on the bedroom lights
+Csökkentsd a világítást 50%-ra || Dim the lights to 50%
+Kapcsold be a ventilátort || Turn on the fan
+Kapcsold ki a ventilátort || Turn off the fan
+Készíts egy bevásárlólistát || Create a shopping list
+Emlékeztess 8-kor az értekezletre || Remind me about the meeting at 8
+Állítsd meg az ébresztőt || Stop the alarm
+Mennyi az idő? || What's the time?
+Nyisd ki az ablakot || Open the window
+Zárd be az ablakot || Close the window
+Hozz létre egy új időzítőt 10 percre || Create a new timer for 10 minutes
+Indítsd újra az eszközt || Restart the device

@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { memoryServiceInstance } = require("../../ai/msContainer");
+const { getGlobalMemoryServiceContainer } = require("../../ai/msContainer");
 
 module.exports = function () {
 
@@ -11,7 +11,7 @@ module.exports = function () {
             const dataSets = fs.readdirSync(path);
             res.locals.dataSets = dataSets;
 
-            res.locals.dataSetName = memoryServiceInstance.name;
+            res.locals.dataSetName = getGlobalMemoryServiceContainer().getName();
         } catch (error) {
             console.log(error);
             res.locals.status = "Error loading RAG data sets from file system";

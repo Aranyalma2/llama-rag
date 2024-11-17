@@ -1,7 +1,5 @@
-const { modelTask } = require("../../ai/models");
-const { memoryServiceInstance } = require("../../ai/msContainer");
+const { getGlobalMemoryServiceContainer } = require("../../ai/msContainer");
 const responseValidator = require("./responseValidator");
-const { PromptTemplate } = require('@langchain/core/prompts');
 
 module.exports = function () {
 
@@ -22,83 +20,30 @@ module.exports = function () {
             systemPrompt = systemPrompt ? systemPrompt[0] : null;
             let userPrompt = prompt.match(/<\|im_start\|>user([\s\S]*?)<\|im_end\|>/);
             userPrompt = userPrompt ? userPrompt[0] : null;
-/*
-           const vectorStore = await Chroma.fromExistingCollection(
-                home3bEmbeddings,
-                { collectionName: process.env.CHROMADB_COLLECTION , url: process.env.CHROMADB },
-            );
 
-            //Get retriever
-            const chromaRetriever = vectorStore.asRetriever();
-
-            console.log("userPrompt:", userPrompt);
-
-            //ASK LLAMA
-            const llamaQuestionPrompt = PromptTemplate.fromTemplate(`
-                Convert the following question into a short strict standalone task. Use english language only.
-                "{userQuestion}"`
-            );
-            
-            const llamaQuestionChain = llamaQuestionPrompt.pipe(llama);
-            const llamaAnswer = await llamaQuestionChain.invoke({
-                userQuestion: userPrompt
-            });
-
-            console.log("llamaAnswer:", llamaAnswer);
-
-            //ASK HOME3B
-            const home3bQuestionPrompt = PromptTemplate.fromTemplate(`
-                For the following user question, create a valid task inside a homeassistant tag.
-                {userQuestion}`
-            );
-
-            const home3bQuestionChain = home3bQuestionPrompt.pipe(home3b).pipe(new StringOutputParser()).pipe(chromaRetriever);
-
-            const documents = await home3bQuestionChain.invoke({
-                userQuestion: userPrompt
-            });
-
-            const combinedDocs = combineDocuments(documents);
-
-            const questionTemplate = PromptTemplate.fromTemplate(`
-                You are a homassistant prompter. You have to create a valid task inside a homeassistant tag for the user question.
-                <context>
-                {context}
-                </context>
-                task: {prompt}
-            `);
-
-            const answerChain = questionTemplate.pipe(home3b);
-
-            const llmResponse = await answerChain.invoke({
-                context: combinedDocs,
-                prompt: llamaAnswer,
-            });
-            */
-
-            //ASK LLAMA
-            const llamaQuestionPrompt = PromptTemplate.fromTemplate(`
+            //ASK TASK GENERATOR MODEL
+            const taskQuestionPrompt = `
                 Convert the following question into a short strict standalone task. Use english language only. Do not explan the question, just translate and summurize it.
-                "{userQuestion}"`
-            );
+                Question: ${userPrompt}
+            `;
             
-            const llamaQuestionChain = llamaQuestionPrompt.pipe(modelTask);
-            const chain1Answer = await llamaQuestionChain.invoke({
-                userQuestion: userPrompt
-            });
+            console.log('taskQuestionPrompt:', taskQuestionPrompt);
 
-            console.log("Chain1:", chain1Answer.content);
+            const memeoryService1 = getGlobalMemoryServiceContainer().getInstance('model1');
+            
+            const taskGeneratorAnswer = await memeoryService1.getRelevantMemory(taskQuestionPrompt);
+            console.log('Chain1:', taskGeneratorAnswer);
 
-
-            let chain2Answare = null;
+            const memeoryService2 = getGlobalMemoryServiceContainer().getInstance('model2');
+            let syntaxGeneratorAnswer = null;
             let numberOfTries = 0;
 
             do{
-                chain2Answare = await memoryServiceInstance.service.getRelevantMemory(chain1Answer.content);
-                console.log(`Chain2 - ${numberOfTries+1}. try:`, chain2Answare);
-            }while(!responseValidator(chain2Answare) && numberOfTries++ < 10);
+                syntaxGeneratorAnswer = await memeoryService2.getRelevantMemory(taskGeneratorAnswer);
+                console.log(`Chain2 - ${numberOfTries+1}. try:`, syntaxGeneratorAnswer);
+            }while(!responseValidator(syntaxGeneratorAnswer) && numberOfTries++ < 10);
 
-            res.ollamaResponse = chain2Answare;
+            res.ollamaResponse = syntaxGeneratorAnswer;
             return next();
 
         } catch (error) {

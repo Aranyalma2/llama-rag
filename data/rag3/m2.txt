@@ -1,0 +1,17 @@
+Template for task response:
+
+Services: 
+light.turn_on(rgb_color,brightness),
+light.turn_off(),
+light.toggle(rgb_color,brightness),
+
+entity_ids:
+light.reading_lamp,
+light.brother_ceiling,
+light.brother_bed,
+light.bathroom,
+
+```homeassistant
+{"service": service_name, "target_device": entity_id}
+```
+

@@ -1,0 +1,50 @@
+Kapcsold fel az összes villanyt || Turn on all the lights
+Kapcsold le az összes villanyt || Turn off all the lights
+Kapcsold fel a nappali lámpáit || Turn on the living room lights
+Kapcsold le a nappali lámpáit || Turn off the living room lights
+Kapcsold fel a hálószobai lámpát || Turn on the bedroom lamp
+Kapcsold le a hálószobai lámpát || Turn off the bedroom lamp
+Kapcsold be az asztali lámpát || Turn on the desk lamp
+Kapcsold ki az asztali lámpát || Turn off the desk lamp
+Állítsd 50%-ra a nappali világítást || Set the living room lighting to 50%
+Csökkentsd a hálószobai világítást 30%-ra || Dim the bedroom lighting to 30%
+Növeld a nappali világítást 80%-ra || Increase the living room lighting to 80%
+Kapcsold ki a konyhai lámpát || Turn off the kitchen lamp
+Kapcsold fel a konyhai lámpát || Turn on the kitchen lamp
+Ellenőrizd, hogy fel vannak-e kapcsolva a lámpák || Check if the lights are on
+Ellenőrizd, hogy ki vannak-e kapcsolva a lámpák || Check if the lights are off
+Kapcsold be az éjjeli lámpát || Turn on the nightstand lamp
+Kapcsold ki az éjjeli lámpát || Turn off the nightstand lamp
+Kapcsold ki az összes szobában lévő lámpát || Turn off all the lights in the rooms
+Kapcsold fel a garázs lámpáját || Turn on the garage light
+Kapcsold le a garázs lámpáját || Turn off the garage light
+
+Nyisd ki az ajtót || Open the door
+Zárd be az ajtót || Close the door
+Zárd be az összes ajtót || Lock all the doors
+Nyisd ki az összes ajtót || Unlock all the doors
+Zárd be a bejárati ajtót || Lock the front door
+Nyisd ki a bejárati ajtót || Unlock the front door
+Ellenőrizd, hogy be van-e zárva a hátsó ajtó || Check if the back door is locked
+Zárd be a hátsó ajtót || Lock the back door
+Nyisd ki a teraszajtót || Unlock the patio door
+Zárd be a teraszajtót || Lock the patio door
+Nyisd ki a garázsajtót || Open the garage door
+Zárd be a garázsajtót || Close the garage door
+Hagyd nyitva a bejárati ajtót || Leave the front door open
+Ellenőrizd, hogy nyitva van-e az ajtó || Check if the door is open
+Ellenőrizd, hogy zárva van-e az ajtó || Check if the door is closed
+Állítsd be, hogy az ajtó automatikusan bezárjon || Set the door to lock automatically
+Állítsd be, hogy az ajtó automatikusan kinyíljon || Set the door to unlock automatically
+Hozd fel az ajtó naplóit || Retrieve the door logs
+Kapcsold ki az ajtózár elektromosságát || Turn off the door lock power
+Kapcsold be az ajtózár elektromosságát || Turn on the door lock power
+Indítsd újra a zár rendszert || Restart the lock system
+Kapcsold ki az ajtózár riasztóját || Turn off the door lock alarm
+Kapcsold be az ajtózár riasztóját || Turn on the door lock alarm
+Húzd ki a teraszajtót || Slide open the patio door
+Told vissza a teraszajtót || Slide closed the patio door
+Nyisd ki a nappali tolóajtóját || Open the living room sliding door
+Zárd be a nappali tolóajtóját || Close the living room sliding door
+Zárd le az ajtót, ha elmegyek || Lock the door when I leave
+Nyisd ki az ajtót, ha hazaérek || Unlock the door when I arrive

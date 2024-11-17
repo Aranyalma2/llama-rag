@@ -29,7 +29,7 @@ module.exports = class MemoryService {
 
         await this.vectorStore.addDocuments(splitDocs);
 
-        console.log('Document indexed successfully:', splitDocs);
+        console.log('Document indexed successfully');
     }
 
     async getRelevantMemory(query) {

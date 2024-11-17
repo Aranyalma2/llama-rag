@@ -1,0 +1,53 @@
+Use the following pairs for task translate hungarian to english
+
+Hungarian || English
+
+Kapcsold fel a villanyt || Turn on the lights
+Kapcsold le a villanyt || Turn off the lights
+Kapcsold fel a világítást || Turn on the lighting
+Kapcsold le a világítást || Turn off the lighting
+Kapcsold be az izzókat || Turn on the bulbs
+Kapcsold ki az izzókat || Turn off the bulbs
+Kapcsold be a lámpákat || Turn on the lamps
+Kapcsold ki a lámpákat || Turn off the lamps
+Kapcsold fel a nappali világítást || Turn on the living room lights
+Kapcsold le a nappali világítást || Turn off the living room lights
+Pattints fel egy pilácsot || Turn on a lamp
+Növeld a fényerőt a hálószobában || Increase the brightness in the bedroom
+Csökkentsd a fényerőt a konyhában || Decrease the brightness in the kitchen
+Kapcsold fel a mennyezeti lámpát || Turn on the ceiling lamp
+Kapcsold le a mennyezeti lámpát || Turn off the ceiling lamp
+Kapcsold be az állólámpát || Turn on the floor lamp
+Kapcsold ki az állólámpát || Turn off the floor lamp
+Ellenőrizd, hogy működnek-e a lámpák || Check if the lamps are working
+Kapcsold ki az egész ház világítását || Turn off all the lighting in the house
+Kapcsold be az egész ház világítását || Turn on all the lighting in the house
+Állítsd 70%-ra a világítás fényerejét || Set the lighting brightness to 70%
+
+Nyisd ki az ajtót || Open the door
+Zárd be az ajtót || Close the door
+Zárd be az összes ajtót || Lock all the doors
+Nyisd ki az összes ajtót || Unlock all the doors
+Nyisd ki a kaput || Open the gate
+Zárd be a kaput || Close the gate
+Nyisd ki a bejáratot || Unlock the entrance
+Zárd be a bejáratot || Lock the entrance
+Nyisd ki a hátsó ajtót || Open the back door
+Zárd be a hátsó ajtót || Close the back door
+Nyisd ki a garázskaput || Open the garage door
+Zárd be a garázskaput || Close the garage door
+Zárd be a teraszkaput || Lock the patio gate
+Nyisd ki a teraszkaput || Unlock the patio gate
+Ellenőrizd a bejárati ajtót || Check the front door
+Zárd le az első kaput || Lock the front gate
+Nyisd ki az automata ajtót || Open the automatic door
+Zárd be az automata ajtót || Close the automatic door
+Állítsd be az ajtó automatikus nyitását || Set the door to open automatically
+Állítsd be az ajtó automatikus zárását || Set the door to close automatically
+Zárd le a kerti kaput || Lock the garden gate
+Nyisd ki a kerti kaput || Unlock the garden gate
+Húzd el a nappali tolóajtóját || Slide open the living room sliding door
+Húzd vissza a nappali tolóajtóját || Slide closed the living room sliding door
+Hagyjuk nyitva a bejárati ajtót || Leave the front door open
+Kapcsold ki az ajtóriasztót || Turn off the door alarm
+Kapcsold be az ajtóriasztót || Turn on the door alarm

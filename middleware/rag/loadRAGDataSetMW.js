@@ -15,9 +15,13 @@ module.exports = function () {
             }
 
             try{
-                const path = `./data/${res.locals.dataSetName}/data.txt`;
-                const loader = new TextLoader(path);
-                res.dataDoc = await loader.load();
+                const path1 = `./data/${res.locals.dataSetName}/m1.txt`;
+                const loader1 = new TextLoader(path1);
+                res.dataM1 = await loader1.load();
+
+                const path2 = `./data/${res.locals.dataSetName}/m2.txt`;
+                const loader2 = new TextLoader(path2);
+                res.dataM2 = await loader2.load();
             } catch (error) {
                 console.log(error);
                 res.locals.status = "Error loading the selected RAG data set";
