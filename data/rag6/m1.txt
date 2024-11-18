@@ -1,0 +1,119 @@
+Only the devices listed here can be used. No other devices are available. Mentioning other devices will kill the system.
+Only one device can be selected for the instruction. Only one instruction can be performed at a time. Mentioning multiple devices or multiple instruction will kill the system
+
+List of devices:
+
+bed lamp
+ceiling lamp
+bathroom lamp
+reading lamp
+
+List of instructions:
+
+turn on
+turn off
+set brightness to <0-100>
+set color to <name of color>
+
+Example:
+
+reading lamp turn on
+reading lamp turn off
+reading lamp set brightness to 0
+reading lamp set brightness to 25
+reading lamp set brightness to 50
+reading lamp set brightness to 75
+reading lamp set brightness to 100
+reading lamp set color to red
+reading lamp set color to blue
+reading lamp set color to green
+bed lamp turn on
+bed lamp turn off
+bed lamp set brightness to 0
+bed lamp set brightness to 25
+bed lamp set brightness to 50
+bed lamp set brightness to 75
+bed lamp set brightness to 100
+bed lamp set color to red
+bed lamp set color to blue
+bed lamp set color to green
+ceiling lamp turn on
+ceiling lamp turn off
+ceiling lamp set brightness to 0
+ceiling lamp set brightness to 25
+ceiling lamp set brightness to 50
+ceiling lamp set brightness to 75
+ceiling lamp set brightness to 100
+ceiling lamp set color to red
+ceiling lamp set color to blue
+ceiling lamp set color to green
+bathroom lamp turn on
+bathroom lamp turn off
+bathroom lamp set brightness to 0
+bathroom lamp set brightness to 25
+bathroom lamp set brightness to 50
+bathroom lamp set brightness to 75
+bathroom lamp set brightness to 100
+bathroom lamp set color to red
+bathroom lamp set color to blue
+bathroom lamp set color to green
+reading lamp set brightness to 10
+reading lamp set brightness to 20
+reading lamp set brightness to 30
+bed lamp set brightness to 10
+bed lamp set brightness to 20
+bed lamp set brightness to 30
+ceiling lamp set brightness to 10
+ceiling lamp set brightness to 20
+ceiling lamp set brightness to 30
+bathroom lamp set brightness to 10
+bathroom lamp set brightness to 20
+bathroom lamp set brightness to 30
+reading lamp set color to yellow
+reading lamp set color to purple
+reading lamp set color to white
+bed lamp set color to yellow
+bed lamp set color to purple
+bed lamp set color to white
+ceiling lamp set color to yellow
+ceiling lamp set color to purple
+ceiling lamp set color to white
+bathroom lamp set color to yellow
+bathroom lamp set color to purple
+bathroom lamp set color to white
+reading lamp set brightness to 90
+reading lamp set brightness to 5
+bed lamp set brightness to 90
+bed lamp set brightness to 5
+ceiling lamp set brightness to 90
+ceiling lamp set brightness to 5
+bathroom lamp set brightness to 90
+bathroom lamp set brightness to 5
+reading lamp set color to cyan
+bed lamp set color to magenta
+ceiling lamp set color to pink
+bathroom lamp set color to orange
+bathroom lamp set color to teal
+reading lamp set brightness to 15
+reading lamp set brightness to 35
+bed lamp set brightness to 15
+bed lamp set brightness to 35
+ceiling lamp set brightness to 15
+ceiling lamp set brightness to 35
+bathroom lamp set brightness to 15
+bathroom lamp set brightness to 35
+reading lamp set color to lime
+reading lamp set color to navy
+bed lamp set color to lime
+bed lamp set color to navy
+ceiling lamp set color to lime
+ceiling lamp set color to navy
+bathroom lamp set color to lime
+bathroom lamp set color to navy
+reading lamp set brightness to 45
+bed lamp set brightness to 45
+ceiling lamp set brightness to 45
+bathroom lamp set brightness to 45
+bathroom lamp turn on
+reading lamp turn off
+ceiling lamp turn on
