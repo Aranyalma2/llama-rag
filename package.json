@@ -5,7 +5,7 @@
 	"main": "index.js",
 	"scripts": {
 		"start": "node --env-file=.env index.js",
-		"load": "node --env-file=.env loadData.mjs"
+		"test": "node --env-file=.env test/runner.js"
 	},
 	"repository": {
 		"type": "git",
@@ -19,6 +19,7 @@
 	"homepage": "https://github.com/Aranyalma2/llama-rag#readme",
 	"dependencies": {
 		"@langchain/ollama": "^0.1.2",
+		"axios": "^1.7.7",
 		"body-parser": "^1.20.3",
 		"chromadb": "^1.9.2",
 		"ejs": "^3.1.10",
