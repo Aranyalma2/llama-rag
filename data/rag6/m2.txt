@@ -1,0 +1,195 @@
+The answer can contain only one task. Multiple task will kill the system.
+Only the devices listed here can be used. No other devices are available. Mentioning other devices will kill the system.
+Only the services listed here can be used. No other services are available. Mentioning other services will kill the system.
+
+Template for task response:
+
+Services: 
+light.turn_on(rgb_color,brightness),
+light.turn_off(),
+light.toggle(rgb_color,brightness),
+
+devices:
+light.reading_lamp,
+light.brother_ceiling,
+light.brother_bed,
+light.bathroom,
+
+structure of task:
+
+```homeassistant
+{"service": service_name, "target_device": device_name}
+```
+example:
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": [255, 0, 0], "brightness": 100}
+```
+```homeassistant
+{"service": "light.turn_off", "target_device": "light.reading_lamp"}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.reading_lamp", "rgb_color": [0, 255, 0], "brightness": 50}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_bed", "rgb_color": [0, 0, 255], "brightness": 75}
+```
+```homeassistant
+{"service": "light.turn_off", "target_device": "light.brother_bed"}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_bed", "rgb_color": [255, 255, 0], "brightness": 20}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_ceiling", "rgb_color": [255, 165, 0], "brightness": 100}
+```
+```homeassistant
+{"service": "light.turn_off", "target_device": "light.brother_ceiling"}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_ceiling", "rgb_color": [0, 255, 255], "brightness": 60}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.bathroom", "rgb_color": [255, 0, 255], "brightness": 30}
+```
+```homeassistant
+{"service": "light.turn_off", "target_device": "light.bathroom"}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.bathroom", "rgb_color": [192, 192, 192], "brightness": 90}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": [0, 0, 0], "brightness": 0}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_bed", "rgb_color": [128, 0, 0], "brightness": 100}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_ceiling", "rgb_color": [128, 128, 0], "brightness": 70}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.bathroom", "rgb_color": [0, 128, 0], "brightness": 40}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.reading_lamp", "rgb_color": [0, 0, 128], "brightness": 80}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_bed", "rgb_color": [128, 0, 128], "brightness": 30}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_ceiling", "rgb_color": [0, 128, 128], "brightness": 50}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.bathroom", "rgb_color": [128, 128, 128], "brightness": 10}
+```
+```homeassistant
+{"service": "light.turn_off", "target_device": "light.reading_lamp"}
+```
+```homeassistant
+{"service": "light.turn_off", "target_device": "light.brother_bed"}
+```
+```homeassistant
+{"service": "light.turn_off", "target_device": "light.brother_ceiling"}
+```
+```homeassistant
+{"service": "light.turn_off", "target_device": "light.bathroom"}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": [255, 20, 147], "brightness": 100}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_bed", "rgb_color": [255, 105, 180], "brightness": 60}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_ceiling", "rgb_color": [199, 21, 133], "brightness": 40}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.bathroom", "rgb_color": [75, 0, 130], "brightness": 20}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.reading_lamp", "rgb_color": [138, 43, 226], "brightness": 90}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_bed", "rgb_color": [147, 112, 219], "brightness": 80}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_ceiling", "rgb_color": [123, 104, 238], "brightness": 70}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.bathroom", "rgb_color": [106, 90, 205], "brightness": 50}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": [72, 61, 139], "brightness": 20}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_bed", "rgb_color": [139, 0, 0], "brightness": 30}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_ceiling", "rgb_color": [178, 34, 34], "brightness": 40}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.bathroom", "rgb_color": [220, 20, 60], "brightness": 50}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.reading_lamp", "rgb_color": [255, 69, 0], "brightness": 60}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_bed", "rgb_color": [255, 140, 0], "brightness": 70}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_ceiling", "rgb_color": [255, 215, 0], "brightness": 80}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.bathroom", "rgb_color": [240, 230, 140], "brightness": 90}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": [189, 183, 107], "brightness": 100}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_bed", "rgb_color": [255, 255, 224], "brightness": 60}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_ceiling", "rgb_color": [255, 250, 205], "brightness": 40}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.bathroom", "rgb_color": [250, 250, 210], "brightness": 20}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.reading_lamp", "rgb_color": [255, 239, 213], "brightness": 30}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_bed", "rgb_color": [255, 235, 205], "brightness": 40}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_ceiling", "rgb_color": [245, 222, 179], "brightness": 50}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.bathroom", "rgb_color": [255, 228, 181], "brightness": 60}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": [255, 248, 220], "brightness": 70}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_bed", "rgb_color": [255, 255, 240], "brightness": 80}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.brother_ceiling", "rgb_color": [240, 255, 240], "brightness": 90}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.bathroom", "rgb_color": [245, 255, 250], "brightness": 100}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.reading_lamp", "rgb_color": [240, 255, 255], "brightness": 50}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_bed", "rgb_color": [240, 248, 255], "brightness": 30}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.brother_ceiling", "rgb_color": [230, 230, 250], "brightness": 70}
+```
+```homeassistant
+{"service": "light.toggle", "target_device": "light.bathroom", "rgb_color": [255, 250, 250], "brightness": 40}
+```
+```homeassistant
+{"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": [240, 128, 128], "brightness": 90}
+```
+
