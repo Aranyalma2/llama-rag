@@ -45,7 +45,9 @@ async function runTest(testName, systemPrompt, userPrompt, expectedResponse, ver
                 numberOfSuccesses++;
             }
             else if (verbose) {
-                console.error(`Run ${i + 1} failed, response: ${response.response}`);
+                console.error(`Run ${i + 1} failed:\n` +
+                    `- Question: ${userPrompt}\n` +
+                    `- Response: ${response.response}`);
             }
         } catch (error) {
             console.error(`Run ${i + 1} failed with serius error: ${error.message}`);
