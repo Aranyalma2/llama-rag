@@ -32,7 +32,7 @@ async function runTest(testName, systemPrompt, userPrompt, expectedResponse, ver
 
     const NUMBER_OF_RUNS = 10;
 
-    console.log(`Running test: ${testName}`);
+    console.log('\x1b[1;37m%s\x1b[0m',`Running test: ${testName}`);
 
     const prompt = promptCreator(systemPrompt, userPrompt);
 
@@ -53,8 +53,12 @@ async function runTest(testName, systemPrompt, userPrompt, expectedResponse, ver
             console.error(`Run ${i + 1} failed with serius error: ${error.message}`);
         }
     }
-
-    console.log(`Test ${testName} finished with success rate: ${numberOfSuccesses}/${NUMBER_OF_RUNS}.`);
+    if(numberOfSuccesses == NUMBER_OF_RUNS) {
+        console.log(`\x1b[0;32m'${testName}' finished with success rate: ${numberOfSuccesses}/${NUMBER_OF_RUNS}.\x1b[0m`);
+    }
+    else {
+        console.log(`\x1b[0;33m'${testName}' finished with success rate: ${numberOfSuccesses}/${NUMBER_OF_RUNS}.\x1b[0m`);
+    }
 }
 
 module.exports = { runTest };
