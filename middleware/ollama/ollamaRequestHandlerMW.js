@@ -14,7 +14,7 @@ module.exports = function () {
                 });
             }
 
-            console.log("prompt:", prompt);
+            //console.log("prompt:", prompt);
 
             let systemPrompt = prompt.match(/(?<=<\|im_start\|>system)([\s\S]*?)(?=<\|im_end\|>)/);
             systemPrompt = systemPrompt ? systemPrompt[0] : null;
@@ -28,7 +28,7 @@ module.exports = function () {
                 The current state of devices: ${systemPrompt}
             `;
 
-            console.log('taskQuestionPrompt:', taskQuestionPrompt);
+            //console.log('taskQuestionPrompt:', taskQuestionPrompt);
 
             const memeoryService1 = getGlobalMemoryServiceContainer().getInstance('model1');
 
@@ -41,7 +41,7 @@ module.exports = function () {
 
             do {
                 syntaxGeneratorAnswer = await memeoryService2.getRelevantMemory(taskGeneratorAnswer);
-                syntaxGeneratorAnswer = syntaxGeneratorAnswer.replaceAll(/({.*})\n(?={.*})/g, "light.turn_off")
+                syntaxGeneratorAnswer = syntaxGeneratorAnswer.replaceAll(/({.*})\n(?={.*})/g, "")
                 console.log(`Chain2 - ${numberOfTries + 1}. try:`, syntaxGeneratorAnswer);
             } while (!responseValidator(syntaxGeneratorAnswer) && numberOfTries++ < 10);
             syntaxGeneratorAnswer = syntaxGeneratorAnswer.replaceAll("light.color", "light.turn_on")
