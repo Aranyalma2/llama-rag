@@ -10,7 +10,7 @@ async function sendGenerateRequest(model, prompt) {
         });
         if (response.status !== 200) {
             console.error('Error:', response.data);
-            return;
+            return "No response";
         }
         return response.data;
     } catch (error) {
@@ -28,7 +28,7 @@ function promptCreator(systemPrompt, userPrompt) {
     return `<|im_start|>system${systemPrompt}<|im_end|><|im_start|>user${userPrompt}<|im_end|>`;
 }
 
-async function runTest(testName, systemPrompt, userPrompt, expectedResponse) {
+async function runTest(testName, systemPrompt, userPrompt, expectedResponse, verbose = false) {
 
     const NUMBER_OF_RUNS = 10;
 
@@ -40,12 +40,15 @@ async function runTest(testName, systemPrompt, userPrompt, expectedResponse) {
 
     for (let i = 0; i < NUMBER_OF_RUNS; i++) {
         try {
-            const result = await sendGenerateRequest('model', prompt);
-            if (validateResponse(result, expectedResponse)) {
+            const response = await sendGenerateRequest('model', prompt);
+            if (validateResponse(response, expectedResponse)) {
                 numberOfSuccesses++;
             }
+            else if (verbose) {
+                console.error(`Run ${i + 1} failed, response: ${response.response}`);
+            }
         } catch (error) {
-            console.error(`Run ${i + 1} failed with error: ${error.message}`);
+            console.error(`Run ${i + 1} failed with serius error: ${error.message}`);
         }
     }
 
