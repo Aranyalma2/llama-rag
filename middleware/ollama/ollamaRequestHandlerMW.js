@@ -41,9 +41,13 @@ module.exports = function () {
 
             do {
                 syntaxGeneratorAnswer = await memeoryService2.getRelevantMemory(taskGeneratorAnswer);
+                syntaxGeneratorAnswer = syntaxGeneratorAnswer.replaceAll(/({.*})\n(?={.*})/g, "light.turn_off")
                 console.log(`Chain2 - ${numberOfTries + 1}. try:`, syntaxGeneratorAnswer);
             } while (!responseValidator(syntaxGeneratorAnswer) && numberOfTries++ < 10);
+            syntaxGeneratorAnswer = syntaxGeneratorAnswer.replaceAll("light.color", "light.turn_on")
 
+
+            console.log('replaced:', syntaxGeneratorAnswer);
             res.ollamaResponse = syntaxGeneratorAnswer;
             return next();
 
