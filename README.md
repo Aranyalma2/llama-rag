@@ -32,7 +32,7 @@ Use `--verbose` attribute for log the response of failed test runs.
 
 #### Create new test case
 
-Create a new test data files in `test/data` folder. 
+Create a new test data files in `test/data` folder. \
 Export the `userPrompt`, `systemPrompt` and `response` variables.\
 Import them in `test/runner.js` and run with `await runTest('Test-Name', systemPrompt, userPrompt, response, verboseError);` 
 
