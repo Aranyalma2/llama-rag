@@ -1,5 +1,6 @@
 const { getGlobalMemoryServiceContainer } = require("../../ai/msContainer");
 const responseValidator = require("./responseValidator");
+const responseCorrector = require("./responseCorrector");
 
 module.exports = function () {
 
@@ -14,7 +15,8 @@ module.exports = function () {
                 });
             }
 
-            //console.log("prompt:", prompt);
+            console.log('------------------------------------------------------------------------------------');
+            console.log('\x1b[1;37mUser prompt\x1b[0m:', prompt);
 
             let systemPrompt = prompt.match(/(?<=<\|im_start\|>system)([\s\S]*?)(?=<\|im_end\|>)/);
             systemPrompt = systemPrompt ? systemPrompt[0] : null;
@@ -28,12 +30,10 @@ module.exports = function () {
                 The current state of devices: ${systemPrompt}
             `;
 
-            //console.log('taskQuestionPrompt:', taskQuestionPrompt);
-
             const memeoryService1 = getGlobalMemoryServiceContainer().getInstance('model1');
 
             const taskGeneratorAnswer = await memeoryService1.getRelevantMemory(taskQuestionPrompt);
-            console.log('Chain1:', taskGeneratorAnswer);
+            console.log('\x1b[1;37mChain1\x1b[0m:', taskGeneratorAnswer);
 
             const memeoryService2 = getGlobalMemoryServiceContainer().getInstance('model2');
             let syntaxGeneratorAnswer = null;
@@ -41,13 +41,14 @@ module.exports = function () {
 
             do {
                 syntaxGeneratorAnswer = await memeoryService2.getRelevantMemory(taskGeneratorAnswer);
-                syntaxGeneratorAnswer = syntaxGeneratorAnswer.replaceAll(/({.*})\n(?={.*})/g, "")
-                console.log(`Chain2 - ${numberOfTries + 1}. try:`, syntaxGeneratorAnswer);
+                const { correctedAnswer, changed } = responseCorrector(syntaxGeneratorAnswer);
+                if (changed) {
+                    syntaxGeneratorAnswer = correctedAnswer;
+                    console.log(`\x1b[1;37mChain2\x1b[0m - \x1b[0;36m${numberOfTries + 1}. try\x1b[0m:`, '\x1b[0;31mCorrected\x1b[0m');
+                }
+                console.log(`\x1b[1;37mChain2\x1b[0m - \x1b[0;36m${numberOfTries + 1}. try\x1b[0m:`, syntaxGeneratorAnswer);
             } while (!responseValidator(syntaxGeneratorAnswer) && numberOfTries++ < 10);
-            syntaxGeneratorAnswer = syntaxGeneratorAnswer.replaceAll("light.color", "light.turn_on")
 
-
-            console.log('replaced:', syntaxGeneratorAnswer);
             res.ollamaResponse = syntaxGeneratorAnswer;
             return next();
 

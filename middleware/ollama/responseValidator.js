@@ -1,9 +1,9 @@
-module.exports = function (reponse) {
+module.exports = function (response) {
     const regex_TAG = /```homeassistant([\s\S]*?)```/;
-    if(!regex_TAG.test(reponse)){
+    if(!regex_TAG.test(response)){
         return false;
     }
-    const match = reponse.match(regex_TAG)[1].trim();
+    const match = response.match(regex_TAG)[1].trim();
     if (match) {
         try {
             const content = JSON.parse(match);
