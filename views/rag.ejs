@@ -1,40 +1,119 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
-  <title>Rag datasets</title>
+  <title>RAG Datasets</title>
+  <style>
+    /* General styles */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #444;
+      margin: 20px 0;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Form styling */
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    label {
+      margin-left: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    input[type="submit"] {
+      display: block;
+      width: 100%;
+      background: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background: #0056b3;
+    }
+
+    /* Status message */
+    #status {
+      text-align: center;
+      font-size: 14px;
+      color: #007bff;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Rag datasets</h1>
-  <p>Here are the datasets for the RAG project.</p>
+  <h1>RAG Datasets</h1>
+  <p>Here are the datasets for the RAG project:</p>
 
-  <!-- dynamically generated radio button menu from res.locals.dataSets -->
+  <!-- Dynamically generated radio button menu from res.locals.dataSets -->
   <form action="/rag" method="post" id="ragForm">
     <ul>
       <% for (let i = 0; i < dataSets.length; i++) { %>
-      <li>
-        <input type="radio" name="dataSet" value="<%= dataSets[i] %>" id="<%= dataSets[i] %>" <%= dataSets[i] === dataSetName ? 'checked' : '' %> />
-        <label for="<%= dataSets[i] %>"><%= dataSets[i] %></label>
-      </li>
+        <li>
+          <input 
+            type="radio" 
+            name="dataSet" 
+            value="<%= dataSets[i] %>" 
+            id="<%= dataSets[i] %>" 
+            <%= dataSets[i] === dataSetName ? 'checked' : '' %> 
+          />
+          <label for="<%= dataSets[i] %>"><%= dataSets[i] %></label>
+        </li>
       <% } %>
     </ul>
-
     <input type="submit" value="Submit" />
   </form>
 
   <% if (typeof status !== 'undefined') { %>
-  <p id="status"><%= status %></p>
+    <p id="status"><%= status %></p>
   <% } %>
 
   <script>
     // Clear the status message on form submission
-    document.getElementById('ragForm').addEventListener('submit', function() {
+    document.getElementById('ragForm').addEventListener('submit', function () {
       const statusElement = document.getElementById('status');
       if (statusElement) {
-        statusElement.textContent = 'Processing...'; // Clear the status text
+        statusElement.textContent = 'Processing...';
       }
     });
   </script>
