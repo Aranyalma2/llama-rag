@@ -21,7 +21,6 @@ Ellenőrizd, hogy működnek-e a lámpák || Check if the lamps are working
 Kapcsold ki az egész ház világítását || Turn off all the lighting in the house
 Kapcsold be az egész ház világítását || Turn on all the lighting in the house
 Állítsd 70%-ra a világítás fényerejét || Set the lighting brightness to 70%
-
 Nyisd ki az ajtót || Open the door
 Zárd be az ajtót || Close the door
 Zárd be az összes ajtót || Lock all the doors
@@ -49,3 +48,68 @@ Húzd vissza a nappali tolóajtóját || Slide closed the living room sliding do
 Hagyjuk nyitva a bejárati ajtót || Leave the front door open
 Kapcsold ki az ajtóriasztót || Turn off the door alarm
 Kapcsold be az ajtóriasztót || Turn on the door alarm
+Kapcsold fel az udvari világítást || Turn on the outdoor lighting
+Kapcsold le a garázs világítását || Turn off the garage lighting
+Kapcsold fel az éjszakai fényt || Turn on the night light
+Kapcsold le az olvasólámpát || Turn off the reading lamp
+Kapcsold be a konyhai pult világítását || Turn on the kitchen counter lighting
+Kapcsold ki a hangulatvilágítást || Turn off the mood lighting
+Növeld a fényerőt a nappaliban 50%-kal || Increase the brightness in the living room by 50%
+Csökkentsd a fényerőt a fürdőszobában || Decrease the brightness in the bathroom
+Kapcsold be a hálószobai ébresztőlámpát || Turn on the bedroom wake-up light
+Nyisd ki a hálószoba ablakát || Open the bedroom window
+Csukd be a hálószoba ablakát || Close the bedroom window
+Nyisd ki az összes ablakot || Open all the windows
+Csukd be az összes ablakot || Close all the windows
+Húzd fel a redőnyöket || Raise the blinds
+Húzd le a redőnyöket || Lower the blinds
+Állítsd meg a redőnyök mozgását || Stop the blinds' movement
+Nyisd ki a nappali erkélyajtóját || Open the living room balcony door
+Csukd be a nappali erkélyajtóját || Close the living room balcony door
+Húzd el a függönyöket || Draw the curtains
+Húzd vissza a függönyöket || Pull back the curtains
+Kapcsold be a fűtést || Turn on the heating
+Kapcsold ki a fűtést || Turn off the heating
+Állítsd a hőmérsékletet 22°C-ra || Set the temperature to 22°C
+Kapcsold be a légkondicionálót || Turn on the air conditioning
+Kapcsold ki a légkondicionálót || Turn off the air conditioning
+Kapcsold be a szellőztetést || Turn on the ventilation
+Kapcsold ki a szellőztetést || Turn off the ventilation
+Növeld a hőmérsékletet 2°C-kal || Increase the temperature by 2°C
+Csökkentsd a hőmérsékletet 3°C-kal || Decrease the temperature by 3°C
+Kapcsold be a ventilátort || Turn on the fan
+Kapcsold ki a ventilátort || Turn off the fan
+Kapcsold be a mosogatógépet || Turn on the dishwasher
+Kapcsold ki a mosogatógépet || Turn off the dishwasher
+Kapcsold be a mosógépet || Turn on the washing machine
+Kapcsold ki a mosógépet || Turn off the washing machine
+Kapcsold be a sütőt || Turn on the oven
+Kapcsold ki a sütőt || Turn off the oven
+Kapcsold be a mikrohullámú sütőt || Turn on the microwave oven
+Kapcsold ki a mikrohullámú sütőt || Turn off the microwave oven
+Indítsd el a porszívót || Start the vacuum cleaner
+Kapcsold ki a porszívót || Turn off the vacuum cleaner
+Kapcsold be a kávéfőzőt || Turn on the coffee maker
+Kapcsold ki a kávéfőzőt || Turn off the coffee maker
+Kapcsold be a riasztórendszert || Turn on the alarm system
+Kapcsold ki a riasztórendszert || Turn off the alarm system
+Állítsd készenléti módba a kamerákat || Put the cameras in standby mode
+Ellenőrizd a biztonsági kamerákat || Check the security cameras
+Kapcsold be a mozgásérzékelőt || Turn on the motion sensor
+Kapcsold ki a mozgásérzékelőt || Turn off the motion sensor
+Kapcsold be a zenelejátszót || Turn on the music player
+Kapcsold ki a zenelejátszót || Turn off the music player
+Indítsd el a Netflixet a tévén || Start Netflix on the TV
+Kapcsold ki a tévét || Turn off the TV
+Állítsd 50%-ra a hangerőt || Set the volume to 50%
+Kapcsold be a robotporszívót || Turn on the robot vacuum cleaner
+Kapcsold ki a robotporszívót || Turn off the robot vacuum cleaner
+Kapcsold be az okostermosztátot || Turn on the smart thermostat
+Kapcsold ki az okostermosztátot || Turn off the smart thermostat
+Kapcsold be a szökőkutat || Turn on the fountain
+Kapcsold ki a szökőkutat || Turn off the fountain
+Indítsd el az öntözőrendszert || Start the irrigation system
+Állítsd le az öntözőrendszert || Stop the irrigation system
+Ellenőrizd az akkumulátor töltöttségét || Check the battery level
+Kapcsold be az elektromos hálózatot || Turn on the power supply
+Kapcsold ki az elektromos hálózatot || Turn off the power supply
