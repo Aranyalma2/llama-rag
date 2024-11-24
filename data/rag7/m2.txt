@@ -5,9 +5,11 @@ Only one service can be called. Writing a subsequent service kills the system.
 Template for task response:
 
 Services: 
-light.turn_on(rgb_color,brightness),
-light.turn_off(),
-light.toggle(rgb_color,brightness),
+light.turn_on
+light.turn_off
+light.turn_on, rgb_color
+light.turn_on, brightness
+light.turn_on, brightness, rgb_color
 
 devices:
 light.reading_lamp,
@@ -17,33 +19,78 @@ light.bathroom_lamp,
 
 examples:
 
-Turn on the reading lamp to bright red at 100% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": [255, 0, 0], "brightness": 100}
+Turn on the reading lamp to bright red at 100% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(255, 0, 0)", "brightness": 100}
 Turn off the reading lamp; {"service": "light.turn_off", "target_device": "light.reading_lamp"}
-Toggle the reading lamp to green at 50% brightness; {"service": "light.toggle", "target_device": "light.reading_lamp", "rgb_color": [0, 255, 0], "brightness": 50}
-Turn on the bed light to bright blue at 75% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": [0, 0, 255], "brightness": 75}
+Turn on the reading lamp to green at 50% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(0, 255, 0)", "brightness": 50}
+Turn on the bed light to bright blue at 75% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(0, 0, 255)", "brightness": 75}
 Turn off the bed light; {"service": "light.turn_off", "target_device": "light.bed_lamp"}
-Toggle the bed light to yellow at 20% brightness; {"service": "light.toggle", "target_device": "light.bed_lamp", "rgb_color": [255, 255, 0], "brightness": 20}
-Turn on the ceiling light to orange at 100% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": [255, 165, 0], "brightness": 100}
+Turn on the bed light to yellow at 20% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(255, 255, 0)", "brightness": 20}
+Turn on the ceiling light to orange at 100% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(255, 165, 0)", "brightness": 100}
 Turn off the ceiling light; {"service": "light.turn_off", "target_device": "light.ceiling_lamp"}
-Toggle the ceiling light to cyan at 60% brightness; {"service": "light.toggle", "target_device": "light.ceiling_lamp", "rgb_color": [0, 255, 255], "brightness": 60}
-Turn on the bathroom_lamp light to magenta at 30% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": [255, 0, 255], "brightness": 30}
+Turn on the ceiling light to cyan at 60% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(0, 255, 255)", "brightness": 60}
+Turn on the bathroom_lamp light to magenta at 30% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(255, 0, 255)", "brightness": 30}
 Turn off the bathroom_lamp light; {"service": "light.turn_off", "target_device": "light.bathroom_lamp"}
-Toggle the bathroom_lamp light to silver at 90% brightness; {"service": "light.toggle", "target_device": "light.bathroom_lamp", "rgb_color": [192, 192, 192], "brightness": 90}
-Turn on the reading lamp to black (off color) with 0% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": [0, 0, 0], "brightness": 0}
-Turn on the bed light to maroon at 100% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": [128, 0, 0], "brightness": 100}
-Turn on the ceiling light to olive green at 70% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": [128, 128, 0], "brightness": 70}
-Turn on the bathroom_lamp light to dark green at 40% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": [0, 128, 0], "brightness": 40}
-Toggle the reading lamp to navy blue at 80% brightness; {"service": "light.toggle", "target_device": "light.reading_lamp", "rgb_color": [0, 0, 128], "brightness": 80}
-Toggle the bed light to purple at 30% brightness; {"service": "light.toggle", "target_device": "light.bed_lamp", "rgb_color": [128, 0, 128], "brightness": 30}
-Toggle the ceiling light to teal at 50% brightness; {"service": "light.toggle", "target_device": "light.ceiling_lamp", "rgb_color": [0, 128, 128], "brightness": 50}
-Toggle the bathroom_lamp light to gray at 10% brightness; {"service": "light.toggle", "target_device": "light.bathroom_lamp", "rgb_color": [128, 128, 128], "brightness": 10}
+Turn on the bathroom_lamp light to silver at 90% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(192, 192, 192)", "brightness": 90}
+Turn on the reading lamp to black (off color) with 0% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(0, 0, 0)", "brightness": 0}
+Turn on the bed light to maroon at 100% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(128, 0, 0)", "brightness": 100}
+Turn on the ceiling light to olive green at 70% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(128, 128, 0)", "brightness": 70}
+Turn on the bathroom_lamp light to dark green at 40% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(0, 128, 0)", "brightness": 40}
+Turn on the reading lamp to navy blue at 80% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(0, 0, 128)", "brightness": 80}
+Turn on the bed light to purple at 30% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(128, 0, 128)", "brightness": 30}
+Turn on the ceiling light to teal at 50% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(0, 128, 128)", "brightness": 50}
+Turn on the bathroom_lamp light to gray at 10% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(128, 128, 128)", "brightness": 10}
 Turn off the reading lamp; {"service": "light.turn_off", "target_device": "light.reading_lamp"}
 Turn off the bed light; {"service": "light.turn_off", "target_device": "light.bed_lamp"}
 Turn off the ceiling light; {"service": "light.turn_off", "target_device": "light.ceiling_lamp"}
 Turn off the bathroom_lamp light; {"service": "light.turn_off", "target_device": "light.bathroom_lamp"}
-Turn on the reading lamp to deep pink at 100% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": [255, 20, 147], "brightness": 100}
-Turn on the bed light to hot pink at 60% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": [255, 105, 180], "brightness": 60}
-Turn on the ceiling light to medium violet red at 40% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": [199, 21, 133], "brightness": 40}
-Turn on the bathroom_lamp light to indigo at 20% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": [75, 0, 130], "brightness": 20}
-Toggle the reading lamp to blue violet at 90% brightness; {"service": "light.toggle", "target_device": "light.reading_lamp", "rgb_color": [138, 43, 226], "brightness": 90}
-Toggle the bed light to medium purple at 80% brightness; {"service": "light.toggle", "target_device": "light.bed_lamp", "rgb_color": [147, 112, 219], "brightness": 80}
+Turn on the reading lamp to deep pink at 100% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(255, 20, 147)", "brightness": 100}
+Turn on the bed light to hot pink at 60% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(255, 105, 180)", "brightness": 60}
+Turn on the ceiling light to medium violet red at 40% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(199, 21, 133)", "brightness": 40}
+Turn on the bathroom_lamp light to indigo at 20% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(75, 0, 130)", "brightness": 20}
+Turn on the reading lamp to blue violet at 90% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(138, 43, 226)", "brightness": 90}
+Turn on the bed light to medium purple at 80% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(147, 112, 219)", "brightness": 80}
+Turn on the reading lamp to crimson at 90% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(220, 20, 60)", "brightness": 90}
+Turn off the bathroom lamp; {"service": "light.turn_off", "target_device": "light.bathroom_lamp"}
+Turn on the bed light to coral at 70% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(255, 127, 80)", "brightness": 70}
+Turn on the ceiling lamp to turquoise at 60% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(64, 224, 208)", "brightness": 60}
+Turn on the bathroom lamp to peach at 50% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(255, 218, 185)", "brightness": 50}
+Turn on the bed lamp to forest green at 30% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(34, 139, 34)", "brightness": 30}
+Turn off the ceiling lamp; {"service": "light.turn_off", "target_device": "light.ceiling_lamp"}
+Turn on the reading lamp to lavender at 80% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(230, 230, 250)", "brightness": 80}
+Turn on the bathroom lamp to chartreuse at 40% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(127, 255, 0)", "brightness": 40}
+Turn off the bed light; {"service": "light.turn_off", "target_device": "light.bed_lamp"}
+Turn on the ceiling light to goldenrod at 70% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(218, 165, 32)", "brightness": 70}
+Turn on the reading lamp to salmon at 90% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(250, 128, 114)", "brightness": 90}
+Turn on the bathroom lamp to orchid at 60% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(218, 112, 214)", "brightness": 60}
+Turn on the bed lamp to slate blue at 100% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(106, 90, 205)", "brightness": 100}
+Turn off the reading lamp; {"service": "light.turn_off", "target_device": "light.reading_lamp"}
+Turn on the reading lamp to lime green at 50% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(50, 205, 50)", "brightness": 50}
+Turn on the bed lamp to royal blue at 80% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(65, 105, 225)", "brightness": 80}
+Turn off the ceiling lamp; {"service": "light.turn_off", "target_device": "light.ceiling_lamp"}
+Turn on the bathroom lamp to mint green at 70% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(152, 255, 152)", "brightness": 70}
+Turn on the reading lamp to ivory at 90% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(255, 255, 240)", "brightness": 90}
+Turn on the bed lamp to sky blue at 60% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(135, 206, 235)", "brightness": 60}
+Turn off the bathroom lamp; {"service": "light.turn_off", "target_device": "light.bathroom_lamp"}
+Turn on the ceiling lamp to khaki at 40% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(240, 230, 140)", "brightness": 40}
+Turn on the reading lamp to dark orange at 100% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(255, 140, 0)", "brightness": 100}
+Turn on the bathroom lamp to sienna at 30% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(160, 82, 45)", "brightness": 30}
+Turn off the bed lamp; {"service": "light.turn_off", "target_device": "light.bed_lamp"}
+Turn on the reading lamp to golden yellow at 80% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(255, 223, 0)", "brightness": 80}
+Turn on the ceiling lamp to pale turquoise at 60% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(175, 238, 238)", "brightness": 60}
+Turn on the bathroom lamp to steel blue at 70% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(70, 130, 180)", "brightness": 70}
+Turn on the bed lamp to rosy brown at 50% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(188, 143, 143)", "brightness": 50}
+Turn on the reading lamp to aquamarine at 40% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(127, 255, 212)", "brightness": 40}
+Turn on the bed lamp to light coral at 70% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(240, 128, 128)", "brightness": 70}
+Turn off the bathroom lamp; {"service": "light.turn_off", "target_device": "light.bathroom_lamp"}
+Turn on the ceiling lamp to lime at 100% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(0, 255, 0)", "brightness": 100}
+Turn on the reading lamp to periwinkle at 60% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(204, 204, 255)", "brightness": 60}
+Turn on the bed lamp to pale green at 30% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(152, 251, 152)", "brightness": 30}
+Turn off the ceiling lamp; {"service": "light.turn_off", "target_device": "light.ceiling_lamp"}
+Turn on the bathroom lamp to wheat at 50% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(245, 222, 179)", "brightness": 50}
+Turn on the reading lamp to firebrick at 80% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(178, 34, 34)", "brightness": 80}
+Turn on the bathroom lamp to dodger blue at 90% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(30, 144, 255)", "brightness": 90}
+Turn off the bed lamp; {"service": "light.turn_off", "target_device": "light.bed_lamp"}
+Turn on the reading lamp to medium sea green at 70% brightness; {"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(60, 179, 113)", "brightness": 70}
+Turn on the ceiling lamp to medium turquoise at 40% brightness; {"service": "light.turn_on", "target_device": "light.ceiling_lamp", "rgb_color": "(72, 209, 204)", "brightness": 40}
+Turn on the bathroom lamp to plum at 60% brightness; {"service": "light.turn_on", "target_device": "light.bathroom_lamp", "rgb_color": "(221, 160, 221)", "brightness": 60}
+Turn on the bed lamp to light slate gray at 50% brightness; {"service": "light.turn_on", "target_device": "light.bed_lamp", "rgb_color": "(119, 136, 153)", "brightness": 50}
