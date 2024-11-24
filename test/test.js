@@ -59,6 +59,8 @@ async function runTest(testName, systemPrompt, userPrompt, expectedResponse, ver
     else {
         console.log(`\x1b[0;33m'${testName}' finished with success rate: ${numberOfSuccesses}/${NUMBER_OF_RUNS}.\x1b[0m`);
     }
+
+    return {runs: NUMBER_OF_RUNS, success: numberOfSuccesses};
 }
 
 module.exports = { runTest };

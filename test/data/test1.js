@@ -13,4 +13,6 @@ const response = `\`\`\`homeassistant
 {"service": "light.turn_off", "target_device": "light.ceiling_lamp"}
 \`\`\``;
 
-module.exports = { userPrompt, systemPrompt, response };
+const isComplex = false;
+
+module.exports = { userPrompt, systemPrompt, response, isComplex };

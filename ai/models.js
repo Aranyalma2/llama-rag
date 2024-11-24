@@ -7,7 +7,7 @@ const modelTask = new ChatOllama({
 
 const modelTaskEmbeddings = new OllamaEmbeddings({
     baseUrl:process.env.OLLAMA,
-    model:process.env.MODEL_TASK_GENERATOR
+    model:process.env.EMBEDDING_MODEL_TASK
 });
 
 const modelSyntax = new ChatOllama({
@@ -17,7 +17,7 @@ const modelSyntax = new ChatOllama({
 
 const modelSyntaxEmbeddings = new OllamaEmbeddings({
     baseUrl:process.env.OLLAMA,
-    model:process.env.MODEL_SYNTAX_GENERATOR
+    model:process.env.EMBEDDING_MODEL_SYNTAX
 });
 
 

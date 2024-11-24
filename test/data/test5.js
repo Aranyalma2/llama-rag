@@ -1,4 +1,4 @@
-const userPrompt = "set reading lamp to green";
+const userPrompt = "I am dirty and I need a shower";
 
 const systemPrompt = `<|im_start|>system
 light.reading_lamp 'attic reading_lamp' = off
@@ -10,9 +10,9 @@ light.bed_lamp 'attic bed_lamp' = off
 light.bathroom_lamp 'attic bathroom_lamp' = off<|im_end|>`;
 
 const response = `\`\`\`homeassistant
-{"service": "light.turn_on", "target_device": "light.reading_lamp", "rgb_color": "(0, 255, 0)"}
+{"service": "light.turn_on", "target_device": "light.bathroom_lamp"}
 \`\`\``;
 
-const isComplex = false;
+const isComplex = true;
 
 module.exports = { userPrompt, systemPrompt, response, isComplex };
