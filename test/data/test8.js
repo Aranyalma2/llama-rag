@@ -11,7 +11,7 @@ light.kitchen_main_lamp 'kitchen lamp' = off
 light.bathroom_lamp 'attic bathroom_lamp' = off<|im_end|>`;
 
 const response = `\`\`\`homeassistant
-{"service": "light.turn_on", "target_device": "light.kitchen_main_lamp", brightness: 50}
+{"service": "light.turn_on", "target_device": "light.kitchen_main_lamp", "brightness": 50}
 \`\`\``;
 
 const isComplex = true;
